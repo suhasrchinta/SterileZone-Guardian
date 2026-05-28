@@ -1,0 +1,934 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SterileZone Guardian - Clinical & Industry Validation</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #1B2B6B;
+    --navy-dark: #131f50;
+    --navy-light: #2a3f8f;
+    --periwinkle: #E8ECF8;
+    --periwinkle-mid: #d0d8f0;
+    --white: #ffffff;
+    --text-body: #2c2c3e;
+    --text-muted: #6b7280;
+    --accent-line: #4a5fc1;
+    --gold: #c8a84b;
+    --green-badge: #1a6b4a;
+    --pending-badge: #7a5c1e;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Montserrat', sans-serif;
+    background: var(--white);
+    color: var(--text-body);
+    overflow-x: hidden;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    background: var(--navy);
+    position: relative;
+    overflow: hidden;
+    padding: 60px 24px 56px;
+    text-align: center;
+  }
+
+
+
+  .hero-eyebrow {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.55);
+    margin-bottom: 16px;
+  }
+
+  .hero h1 {
+    font-size: clamp(32px, 8vw, 54px);
+    font-weight: 900;
+    color: var(--white);
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    margin-bottom: 12px;
+  }
+
+  .hero-tagline {
+    font-size: 13px;
+    font-weight: 500;
+    color: rgba(255,255,255,0.7);
+    letter-spacing: 0.04em;
+    margin-bottom: 28px;
+  }
+
+  .patent-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 6px;
+    padding: 8px 16px;
+    font-size: 11px;
+    font-weight: 600;
+    color: rgba(255,255,255,0.85);
+    letter-spacing: 0.05em;
+    margin-bottom: 40px;
+  }
+
+  .patent-badge .dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: #6ee7b7;
+    flex-shrink: 0;
+  }
+
+  .stats-row {
+    display: flex;
+    justify-content: center;
+    gap: 0;
+    max-width: 440px;
+    margin: 0 auto;
+  }
+
+  .stat-item {
+    flex: 1;
+    padding: 16px 12px;
+    border-top: 1px solid rgba(255,255,255,0.12);
+    border-bottom: 1px solid rgba(255,255,255,0.12);
+  }
+
+  .stat-item:first-child {
+    border-left: 1px solid rgba(255,255,255,0.12);
+    border-right: 1px solid rgba(255,255,255,0.08);
+    border-radius: 6px 0 0 6px;
+  }
+
+  .stat-item:last-child {
+    border-right: 1px solid rgba(255,255,255,0.12);
+    border-radius: 0 6px 6px 0;
+  }
+
+  .stat-num {
+    font-size: 28px;
+    font-weight: 900;
+    color: var(--white);
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+
+  .stat-label {
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+  }
+
+  /* ── IMPERATIVE CALLOUT ── */
+  .imperative-section {
+    background: var(--navy-dark);
+    padding: 52px 24px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .imperative-section::before {
+    content: '"';
+    position: absolute;
+    top: -20px; left: 50%;
+    transform: translateX(-50%);
+    font-size: 200px;
+    font-weight: 900;
+    color: rgba(255,255,255,0.03);
+    line-height: 1;
+    pointer-events: none;
+    font-family: Georgia, serif;
+  }
+
+  .imperative-word {
+    font-size: clamp(42px, 12vw, 80px);
+    font-weight: 900;
+    color: var(--white);
+    letter-spacing: -0.02em;
+    line-height: 1;
+    margin-bottom: 20px;
+    position: relative;
+  }
+
+  .imperative-word span {
+    display: inline-block;
+    border-bottom: 3px solid rgba(255,255,255,0.25);
+    padding-bottom: 4px;
+  }
+
+  .imperative-sub {
+    font-size: 13px;
+    font-weight: 400;
+    color: rgba(255,255,255,0.6);
+    max-width: 340px;
+    margin: 0 auto;
+    line-height: 1.7;
+  }
+
+  /* ── INTRO ── */
+  .intro-section {
+    padding: 48px 24px 40px;
+    max-width: 680px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .section-eyebrow {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--navy);
+    margin-bottom: 10px;
+    opacity: 0.7;
+  }
+
+  .intro-section h2 {
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--navy);
+    margin-bottom: 16px;
+    line-height: 1.3;
+  }
+
+  .intro-section p {
+    font-size: 14px;
+    line-height: 1.8;
+    color: var(--text-muted);
+    font-weight: 400;
+  }
+
+  /* ── DIVIDER ── */
+  .divider {
+    width: 40px;
+    height: 3px;
+    background: var(--navy);
+    margin: 0 auto 20px;
+    border-radius: 2px;
+  }
+
+  /* ── REVIEWER GRID ── */
+  .reviewers-section {
+    padding: 8px 16px 60px;
+    max-width: 720px;
+    margin: 0 auto;
+  }
+
+  .reviewers-section h2 {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--navy);
+    opacity: 0.6;
+    text-align: center;
+    margin-bottom: 24px;
+  }
+
+  .reviewer-card {
+    background: var(--periwinkle);
+    border-radius: 10px;
+    border-left: 4px solid var(--navy);
+    margin-bottom: 14px;
+    cursor: pointer;
+    transition: transform 0.18s ease, box-shadow 0.18s ease;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .reviewer-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 28px rgba(27,43,107,0.14);
+  }
+
+  .reviewer-card.pending {
+    border-left-color: #c8a84b;
+  }
+
+  .card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 18px 14px;
+  }
+
+  .card-avatar {
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    background: var(--navy);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 800;
+    color: white;
+    flex-shrink: 0;
+    margin-right: 14px;
+  }
+
+  .reviewer-card.pending .card-avatar {
+    background: #c8a84b;
+  }
+
+  .card-info { flex: 1; min-width: 0; }
+
+  .card-name {
+    font-size: 14px;
+    font-weight: 800;
+    color: var(--navy);
+    margin-bottom: 2px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .card-title {
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--text-muted);
+    margin-bottom: 2px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .card-inst {
+    font-size: 10px;
+    font-weight: 600;
+    color: var(--navy);
+    opacity: 0.6;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .card-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 6px;
+    flex-shrink: 0;
+    margin-left: 10px;
+  }
+
+  .status-badge {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    border-radius: 4px;
+  }
+
+  .status-complete {
+    background: rgba(27,43,107,0.12);
+    color: var(--navy);
+  }
+
+  .status-pending {
+    background: rgba(200,168,75,0.18);
+    color: #7a5c1e;
+  }
+
+  .chevron {
+    font-size: 16px;
+    color: var(--navy);
+    opacity: 0.4;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+  }
+
+  .reviewer-card.open .chevron {
+    transform: rotate(90deg);
+    opacity: 0.8;
+  }
+
+  .card-snippet {
+    padding: 0 18px 14px;
+    font-size: 12px;
+    line-height: 1.6;
+    color: var(--text-muted);
+    font-style: italic;
+    border-top: 1px solid rgba(27,43,107,0.08);
+    padding-top: 12px;
+  }
+
+  /* ── EXPANDED CONTENT ── */
+  .card-expanded {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+  }
+
+  .card-expanded.open {
+    max-height: 4000px;
+  }
+
+  .expanded-inner {
+    padding: 20px 18px 24px;
+    background: white;
+    border-top: 1px solid var(--periwinkle-mid);
+  }
+
+  .expanded-inner h3 {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--navy);
+    opacity: 0.6;
+    margin-bottom: 14px;
+  }
+
+  .letter-text {
+    font-size: 13px;
+    line-height: 1.85;
+    color: var(--text-body);
+    white-space: pre-wrap;
+  }
+
+  .breakdown-block {
+    margin-bottom: 16px;
+  }
+
+  .breakdown-q {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 4px;
+    letter-spacing: 0.03em;
+  }
+
+  .breakdown-a {
+    font-size: 13px;
+    color: var(--text-body);
+    line-height: 1.7;
+    padding-left: 12px;
+    border-left: 2px solid var(--periwinkle-mid);
+  }
+
+  .pending-note {
+    background: rgba(200,168,75,0.1);
+    border: 1px solid rgba(200,168,75,0.3);
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 18px;
+  }
+
+  .pending-note-title {
+    font-size: 11px;
+    font-weight: 700;
+    color: #7a5c1e;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+
+  .pending-note p {
+    font-size: 12px;
+    color: #5a4010;
+    line-height: 1.6;
+  }
+
+  .key-point {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 12px;
+    align-items: flex-start;
+  }
+
+  .key-point-dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--navy);
+    margin-top: 6px;
+    flex-shrink: 0;
+  }
+
+  .key-point-text {
+    font-size: 13px;
+    line-height: 1.7;
+    color: var(--text-body);
+  }
+
+  .pdf-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 20px;
+    background: var(--navy);
+    color: white;
+    text-decoration: none;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 10px 18px;
+    border-radius: 6px;
+    transition: background 0.15s ease;
+  }
+
+  .pdf-btn:hover { background: var(--navy-light); }
+
+  .pdf-btn svg {
+    width: 14px; height: 14px;
+    fill: white;
+    flex-shrink: 0;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--navy);
+    padding: 40px 24px;
+    text-align: center;
+  }
+
+  .footer-logo {
+    font-size: 16px;
+    font-weight: 900;
+    color: white;
+    letter-spacing: -0.01em;
+    margin-bottom: 6px;
+  }
+
+  .footer-sub {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.4);
+    margin-bottom: 24px;
+  }
+
+  .footer-team {
+    font-size: 12px;
+    font-weight: 500;
+    color: rgba(255,255,255,0.7);
+    margin-bottom: 6px;
+    line-height: 1.7;
+  }
+
+  .footer-chapter {
+    font-size: 10px;
+    font-weight: 500;
+    color: rgba(255,255,255,0.4);
+    line-height: 1.8;
+  }
+
+  .footer-divider {
+    width: 32px;
+    height: 2px;
+    background: rgba(255,255,255,0.15);
+    margin: 20px auto;
+    border-radius: 2px;
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(18px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero > * { animation: fadeUp 0.5s ease both; }
+  .hero .hero-eyebrow { animation-delay: 0.05s; }
+  .hero h1 { animation-delay: 0.12s; }
+  .hero .hero-tagline { animation-delay: 0.18s; }
+  .hero .patent-badge { animation-delay: 0.24s; }
+  .hero .stats-row { animation-delay: 0.3s; }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-eyebrow">HOSA Medical Innovation · Clinical Validation</div>
+  <h1>SterileZone<br>Guardian</h1>
+  <div class="hero-tagline">Patent-Pending AI Practice Monitoring Platform</div>
+  <div class="patent-badge">
+    <span class="dot"></span>
+    USPTO Provisional Application #64/043,434 &nbsp;·&nbsp; Filed April 18, 2026
+  </div>
+  <div class="stats-row">
+    <div class="stat-item">
+      <div class="stat-num">30+</div>
+      <div class="stat-label">Professionals<br>Contacted</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">6</div>
+      <div class="stat-label">Formal<br>Responses</div>
+    </div>
+  </div>
+</header>
+
+<!-- IMPERATIVE CALLOUT -->
+<section class="imperative-section">
+  <div class="imperative-word"><span>Imperative.</span></div>
+  <div class="imperative-sub">The word that emerged across every reviewer, every institution - from professionals who work in these environments every day.</div>
+</section>
+
+<!-- INTRO -->
+<section class="intro-section">
+  <div class="section-eyebrow">About This Page</div>
+  <div class="divider"></div>
+  <h2>Formal Clinical &amp; Industry Reviewer Responses</h2>
+  <p>These are the formal clinical and industry reviewer responses collected during the development of SterileZone Guardian, provided here in full for judges and delegates reviewing the exhibit. Reviewers were contacted across physician, nursing, engineering, and regulatory backgrounds. Each response is reproduced as submitted, with breakdowns provided where useful context is needed.</p>
+</section>
+
+<!-- REVIEWER CARDS -->
+<section class="reviewers-section">
+  <h2>6 Reviewer Responses</h2>
+
+  <!-- 1. Sushma Venugopal -->
+  <div class="reviewer-card" onclick="toggleCard(this)">
+    <div class="card-header">
+      <div class="card-avatar">SV</div>
+      <div class="card-info">
+        <div class="card-name">Dr. Sushma Venugopal, MD</div>
+        <div class="card-title">Gastroenterology</div>
+        <div class="card-inst">NYC Health + Hospitals / Queens, NY</div>
+      </div>
+      <div class="card-right">
+        <span class="status-badge status-complete">Response Received</span>
+        <span class="chevron">›</span>
+      </div>
+    </div>
+    <div class="card-snippet">
+      "An outstanding integration of medicine, engineering, and artificial intelligence with significant originality and potential for meaningful contribution to patient safety."
+    </div>
+    <div class="card-expanded">
+      <div class="expanded-inner">
+        <h3>Full Response</h3>
+        <div class="letter-text">As a physician, I found this project to be exceptionally well conceived, clinically relevant, and highly innovative. The student identified an important and persistent problem in healthcare - sterile field contamination and its contribution to preventable surgical site infections - and proposed a thoughtful technology-based solution with meaningful real-world application.
+
+The project demonstrates a strong understanding of operating room workflow, patient safety principles, and the growing role of artificial intelligence in healthcare environments. Particularly impressive was the emphasis on passive monitoring without requiring workflow disruption, as this reflects an appreciation for the practical challenges associated with implementation in clinical settings.
+
+The proposed system architecture, including real-time detection, automated alerting, and permanent compliance documentation, reflects a level of systems thinking and technical maturity that is uncommon at the high school level. The scalability of the platform and the consideration of future applications beyond the operating room further strengthen the project's overall vision and potential impact.
+
+For continued development, future work could include validation studies assessing detection accuracy, reduction of false-positive events, usability testing in simulated clinical environments, and evaluation of measurable impact on sterile field compliance and surgical site infection prevention.
+
+Overall, this project represents an outstanding integration of medicine, engineering, and artificial intelligence. It demonstrates significant originality, technical insight, and potential for meaningful contribution to patient safety and healthcare quality improvement.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. Kate Maclean -->
+  <div class="reviewer-card" onclick="toggleCard(this)">
+    <div class="card-header">
+      <div class="card-avatar">KM</div>
+      <div class="card-info">
+        <div class="card-name">Kate Maclean, RN</div>
+        <div class="card-title">Health Science Educator / RN</div>
+        <div class="card-inst">Texas Health Harris Methodist Fort Worth</div>
+      </div>
+      <div class="card-right">
+        <span class="status-badge status-complete">Response Received</span>
+        <span class="chevron">›</span>
+      </div>
+    </div>
+    <div class="card-snippet">
+      Described automated event logs for training and audits as "Imperative." Identified operating rooms as the most valuable setting. Workflow integration described as welcomed.
+    </div>
+    <div class="card-expanded">
+      <div class="expanded-inner">
+        <h3>Structured Feedback Breakdown</h3>
+
+        <div class="breakdown-block">
+          <div class="breakdown-q">Does this system address a meaningful sterile-field challenge?</div>
+          <div class="breakdown-a">Yes.</div>
+        </div>
+
+        <div class="breakdown-block">
+          <div class="breakdown-q">Where would this system be most valuable?</div>
+          <div class="breakdown-a">Operating Rooms.</div>
+        </div>
+
+        <div class="breakdown-block">
+          <div class="breakdown-q">How realistic is integration into a typical OR workflow?</div>
+          <div class="breakdown-a">"I think this system would be welcomed as a positive tool."</div>
+        </div>
+
+        <div class="breakdown-block">
+          <div class="breakdown-q">Are there aspects that could interfere with routine practice?</div>
+          <div class="breakdown-a">No.</div>
+        </div>
+
+        <div class="breakdown-block">
+          <div class="breakdown-q">Are visual alert cues appropriate for the OR environment?</div>
+          <div class="breakdown-a">Takes a "monitor" - someone designated. (Note: highlights the need for a dedicated observer role or autonomous alerting.)</div>
+        </div>
+
+        <div class="breakdown-block">
+          <div class="breakdown-q">How useful would automated event logs be for training, QA, and compliance?</div>
+          <div class="breakdown-a" style="font-weight:700;color:var(--navy);font-size:15px;">Imperative.</div>
+        </div>
+
+        <div class="breakdown-block">
+          <div class="breakdown-q">Where might this system struggle in real-world use?</div>
+          <div class="breakdown-a">Alerts to situations that don't require a sterile field, setup times, and difficulty working around equipment.</div>
+        </div>
+
+        <div class="breakdown-block">
+          <div class="breakdown-q">What constraints should be prioritized during development?</div>
+          <div class="breakdown-a">Visual aids and setup times.</div>
+        </div>
+
+        <div class="breakdown-block">
+          <div class="breakdown-q">What would most influence hospital adoption?</div>
+          <div class="breakdown-a">Adding a structured process of review. Barriers should be addressed before a procedure begins.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. Nathaniel Bleker -->
+  <div class="reviewer-card pending" onclick="toggleCard(this)">
+    <div class="card-header">
+      <div class="card-avatar" style="background:#c8a84b;">NB</div>
+      <div class="card-info">
+        <div class="card-name">Nathaniel Bleker</div>
+        <div class="card-title">Head of Engineering Development</div>
+        <div class="card-inst">University of Texas at Dallas</div>
+      </div>
+      <div class="card-right">
+        <span class="status-badge status-pending">Meeting Pending</span>
+        <span class="chevron" style="color:#c8a84b;">›</span>
+      </div>
+    </div>
+    <div class="card-snippet">
+      Detailed engineering feedback on hardware architecture, FDA regulatory strategy, and human factors. Full follow-up meeting scheduled.
+    </div>
+    <div class="card-expanded">
+      <div class="expanded-inner">
+        <div class="pending-note">
+          <div class="pending-note-title">⏳ Follow-Up Meeting Scheduled</div>
+          <p>An in-person follow-up meeting with Nathaniel Bleker is pending. The feedback below was received in writing prior to that meeting and reflects his initial detailed technical review.</p>
+        </div>
+
+        <h3>Key Engineering Feedback - Summary</h3>
+
+        <div class="breakdown-block">
+          <div class="breakdown-q">Hardware Architecture</div>
+          <div class="breakdown-a">Recommends eliminating the standalone hardware unit and running the system on an overhead-mounted phone using its wide-angle camera. Advises removing 2D barcodes (ArUco markers) in favor of object segmentation and eliminating any vertical obstacles a limb could accidentally contact.</div>
+        </div>
+
+        <div class="breakdown-block">
+          <div class="breakdown-q">FDA Regulatory Strategy</div>
+          <div class="breakdown-a">The FDA does not yet have established in-house expertise for evaluating LLMs and AI in investigational device exemption submissions - expect extensive questioning and costly testing. Recommends carefully planning the regulatory approach early. His own IDE submission for an implantable stimulator was 11,000 pages of compliance documentation.</div>
+        </div>
+
+        <div class="breakdown-block">
+          <div class="breakdown-q">Software Architecture</div>
+          <div class="breakdown-a">Core requirement: one high-resolution wide-angle camera, a speaker, and a well-trained model. Audio feedback is essential - people will not watch a screen in a surgical environment.</div>
+        </div>
+
+        <div class="breakdown-block">
+          <div class="breakdown-q">Quality Management System (QMS)</div>
+          <div class="breakdown-a">Device development must occur under a formal QMS including SOPs, software development plans, architecture documents, risk analyses, and failure mode enumeration. The FDA requires documentation of effectively every decision made during development.</div>
+        </div>
+
+        <div class="breakdown-block">
+          <div class="breakdown-q">Critical Engineering Decisions Ahead</div>
+          <div class="breakdown-a">1. Produce own hardware, or use COTS (commercial off-the-shelf)? 2. Identify a usability partner with surgical suite experience. 3. Define a field support and repair strategy - including whether the device must survive sterilization.</div>
+        </div>
+
+        <div class="breakdown-block">
+          <div class="breakdown-q">Human Factors</div>
+          <div class="breakdown-a">Human response time, average hearing and vision of OR staff, ambient noise levels, and limb movement speed in the surgical theater must all inform the design. Recommends reviewing FDA guidance on applying human factors engineering to medical devices.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4. Dr. Shopha Tserotas -->
+  <div class="reviewer-card pending" onclick="toggleCard(this)">
+    <div class="card-header">
+      <div class="card-avatar" style="background:#c8a84b;">ST</div>
+      <div class="card-info">
+        <div class="card-name">Dr. Shopha Tserotas, PhD, RN</div>
+        <div class="card-title">Faculty, College of Nursing</div>
+        <div class="card-inst">UNT Health Science Center</div>
+      </div>
+      <div class="card-right">
+        <span class="status-badge status-pending">Meeting Pending</span>
+        <span class="chevron" style="color:#c8a84b;">›</span>
+      </div>
+    </div>
+    <div class="card-snippet">
+      "I love your innovation and creativity." Identified operating rooms and surgery areas as most appropriate setting. Full demo and feedback session pending.
+    </div>
+    <div class="card-expanded">
+      <div class="expanded-inner">
+        <div class="pending-note">
+          <div class="pending-note-title">&#9203; Demo Meeting Scheduled</div>
+          <p>Dr. Tserotas has expressed strong interest in attending a live demonstration of SterileZone Guardian. A meeting is being coordinated for an in-person demo and structured feedback session, potentially with additional nursing faculty present.</p>
+        </div>
+
+        <h3>Response Breakdown</h3>
+
+        <div class="breakdown-block">
+          <div class="breakdown-q">Initial Reaction</div>
+          <div class="breakdown-a">After watching the video and reviewing the summary, Dr. Tserotas identified operating rooms and surgery areas as the most appropriate setting for SterileZone Guardian.</div>
+        </div>
+
+        <div class="breakdown-block">
+          <div class="breakdown-q">Area of Expertise</div>
+          <div class="breakdown-a">Dr. Tserotas noted that OR environments are not her primary specialty area, but expressed genuine willingness to provide perspective and connect the team with additional reviewers who may have more direct OR experience.</div>
+        </div>
+
+        <div class="breakdown-block">
+          <div class="breakdown-q">Engagement Level</div>
+          <div class="breakdown-a">Proactively offered to organize a group demo session, potentially bringing in additional faculty to observe and provide feedback alongside her. This reflects strong institutional interest in the project.</div>
+        </div>
+
+        <div class="breakdown-block">
+          <div class="breakdown-q">Overall Impression</div>
+          <div class="breakdown-a">"I love your innovation and creativity." Dr. Tserotas expressed enthusiasm for the project and anticipation for an in-person meeting to see the system demonstrated live.</div>
+        </div>
+
+        <div class="breakdown-block">
+          <div class="breakdown-q">Next Step</div>
+          <div class="breakdown-a">A live demo and structured feedback session is being scheduled. Dr. Tserotas may bring additional UNT Health Science Center faculty to the session to expand the scope of clinical input received.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 5. Dr. Vikaskumar Patel -->
+  <div class="reviewer-card" onclick="toggleCard(this)">
+    <div class="card-header">
+      <div class="card-avatar">VP</div>
+      <div class="card-info">
+        <div class="card-name">Dr. Vikaskumar Patel, DDS</div>
+        <div class="card-title">DDS, MBA, BDS, FICOI, AFAAID, FAGD</div>
+        <div class="card-inst">Olney Dental Wellness - Olney, MD</div>
+      </div>
+      <div class="card-right">
+        <span class="status-badge status-complete">Response Received</span>
+        <span class="chevron">›</span>
+      </div>
+    </div>
+    <div class="card-snippet">
+      "A clinically meaningful, technically sound innovation with a credible development roadmap and genuine potential for impact across operating rooms, simulation laboratories, and sterile manufacturing environments."
+    </div>
+    <div class="card-expanded">
+      <div class="expanded-inner">
+        <h3>Full Letter</h3>
+        <div class="letter-text">To Whom It May Concern,
+
+I am writing in strong support of SterileZone Guardian, an AI-powered sterile field monitoring system developed by Suhas Chinta and his team at Keller Collegiate Academy.
+
+Having reviewed the technical and clinical documentation accompanying this project, I am impressed by both the rigor of the team's approach and the genuine clinical relevance of the problem they are addressing. Surgical site infections remain a significant and largely preventable burden on the healthcare system, and the absence of any automated, objective monitoring solution in current clinical practice represents a meaningful gap. SterileZone Guardian addresses this gap directly.
+
+The system's core capabilities - real-time boundary breach detection at greater than 99% accuracy, sub-100-millisecond response latency, millisecond-accurate event logging, and a self-contained hardware form factor requiring no network dependency or workflow disruption - reflect a level of technical and clinical thinking that is exceptional for any innovator, and particularly remarkable for a student team.
+
+From a clinical standpoint, I find the event logging capability to be among the most compelling features of this system. The ability to generate a permanent, auditable compliance record of sterile field activity addresses a long-standing limitation in both quality assurance and training environments, where accountability has historically depended entirely on real-time human observation.
+
+I endorse SterileZone Guardian as a clinically meaningful, technically sound innovation with a credible development roadmap and genuine potential for impact across operating rooms, simulation laboratories, and sterile manufacturing environments. I commend Suhas and his team for the seriousness and professionalism with which they have pursued this work, and I wish them every success at HOSA Medical Innovation Internationals.
+
+Please do not hesitate to contact me should you require any further information.
+
+Sincerely,
+Dr. Vikaskumar Patel
+DDS, MBA, BDS, FICOI, AFAAID, FAGD
+Olney Dental Wellness</div>
+        <a class="pdf-btn" href="./letter.pdf" target="_blank">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20M10,19L12,15L14,19H10M12,10L10,14H14L12,10Z"/></svg>
+          View Original Letter (PDF)
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- 6. Holle Carey -->
+  <div class="reviewer-card" onclick="toggleCard(this)">
+    <div class="card-header">
+      <div class="card-avatar">HC</div>
+      <div class="card-info">
+        <div class="card-name">Holle Carey</div>
+        <div class="card-title">Sr. Regulatory Engineer</div>
+        <div class="card-inst">Texas Biomedical Device Center · UTD</div>
+      </div>
+      <div class="card-right">
+        <span class="status-badge status-complete">Response Received</span>
+        <span class="chevron">›</span>
+      </div>
+    </div>
+    <div class="card-snippet">
+      Strong support from a medical device manufacturer's regulatory perspective. Highlighted expanded value for point-of-use sterile packaging inspection beyond boundary monitoring.
+    </div>
+    <div class="card-expanded">
+      <div class="expanded-inner">
+        <h3>Full Letter - May 15, 2026</h3>
+        <div class="letter-text">To Whom It May Concern,
+
+I am pleased to provide this letter in support of the student team competing in the HOSA Medical Innovation International event with their project focused on the development of an artificial intelligence (AI)-based Sterile Field Monitor.
+
+As a medical device manufacturer, I see expanded value beyond the initial vision to monitor the sterile boundary. Loss of sterility to packaged devices can introduce infections that are more likely to lead to sepsis. Current inspection practices rely heavily on manual visual inspection by operating room personnel, which may be subject to variability due to time constraints, environmental conditions, and human factors. Development of automated optical inspection technologies is an area of growing interest within the medical device industry, particularly for applications involving defect detection, seal inspection, and packaging quality evaluation. Exploring these technologies in the context of point-of-use inspection within the operating room is highly relevant.
+
+The proposed application of AI-assisted optical monitoring has the potential to improve consistency, support clinical decision-making, and enhance patient safety by providing an additional layer of quality assessment - not only for monitoring the sterile boundary, but also when applied immediately before a product is introduced into the sterile field.
+
+What makes this project particularly impressive is the team's ability to combine concepts from healthcare, biomedical engineering, artificial intelligence, and quality assurance into a practical and clinically relevant application. Their work reflects a strong understanding of both the technical and real-world considerations associated with the operating room.
+
+In addition to the technical aspects of the project, the students have demonstrated initiative, creativity, professionalism, and a genuine interest in solving meaningful healthcare problems. The project exemplifies the type of interdisciplinary thinking and innovation encouraged through HOSA's Medical Innovation program.
+
+I strongly support this team and believe their project represents a thoughtful and promising contribution to healthcare technology innovation. I commend their dedication, curiosity, and commitment to improving patient care through engineering and scientific problem solving.
+
+Regards,
+Holle Carey
+Sr. Regulatory Engineer
+University of Texas at Dallas - Texas Biomedical Device Center</div>
+        <a class="pdf-btn" href="./HC_Letter_of_Support_SterileZoneGuardian.pdf" target="_blank">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20M10,19L12,15L14,19H10M12,10L10,14H14L12,10Z"/></svg>
+          View Original Letter (PDF)
+        </a>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">SterileZone Guardian</div>
+  <div class="footer-sub">HOSA Medical Innovation · Clinical Validation Page</div>
+  <div class="footer-divider"></div>
+  <div class="footer-team">Layal Barbar &nbsp;·&nbsp; Suhas Chinta &nbsp;·&nbsp; Raniel Tshimbalanga &nbsp;·&nbsp; Sanjit Vadlapudi</div>
+  <div class="footer-chapter">
+    Division: Secondary &nbsp;·&nbsp; HOSA Chapter #5196<br>
+    Keller Collegiate Academy &nbsp;·&nbsp; Texas HOSA 60247
+  </div>
+</footer>
+
+<script>
+  function toggleCard(card) {
+    const expanded = card.querySelector('.card-expanded');
+    const isOpen = expanded.classList.contains('open');
+
+    // Close all
+    document.querySelectorAll('.card-expanded.open').forEach(el => el.classList.remove('open'));
+    document.querySelectorAll('.reviewer-card.open').forEach(el => el.classList.remove('open'));
+
+    if (!isOpen) {
+      expanded.classList.add('open');
+      card.classList.add('open');
+    }
+  }
+</script>
+
+</body>
+</html>
