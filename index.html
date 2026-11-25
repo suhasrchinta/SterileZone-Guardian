@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SterileZone Guardian - Clinical & Industry Validation</title>
+<title>SterileZone Guardian - Clinical & Industry Review</title>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -93,29 +93,38 @@
   }
 
   .stats-row {
-    display: flex;
-    justify-content: center;
-    gap: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
     max-width: 440px;
     margin: 0 auto;
   }
 
   .stat-item {
-    flex: 1;
     padding: 16px 12px;
-    border-top: 1px solid rgba(255,255,255,0.12);
-    border-bottom: 1px solid rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 6px;
   }
 
-  .stat-item:first-child {
-    border-left: 1px solid rgba(255,255,255,0.12);
-    border-right: 1px solid rgba(255,255,255,0.08);
-    border-radius: 6px 0 0 6px;
+  .award-line {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--gold);
+    letter-spacing: 0.04em;
+    line-height: 1.7;
+    margin-top: 22px;
   }
 
-  .stat-item:last-child {
-    border-right: 1px solid rgba(255,255,255,0.12);
-    border-radius: 0 6px 6px 0;
+  .system-section {
+    max-width: 680px;
+    margin: 0 auto 40px;
+    padding: 0 24px;
+  }
+
+  .system-box {
+    background: var(--periwinkle);
+    border-radius: 10px;
+    padding: 24px 20px 12px;
   }
 
   .stat-num {
@@ -293,9 +302,6 @@
     font-weight: 800;
     color: var(--navy);
     margin-bottom: 2px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
   }
 
   .card-title {
@@ -303,9 +309,6 @@
     font-weight: 500;
     color: var(--text-muted);
     margin-bottom: 2px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
   }
 
   .card-inst {
@@ -313,9 +316,6 @@
     font-weight: 600;
     color: var(--navy);
     opacity: 0.6;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
   }
 
   .card-right {
@@ -556,7 +556,7 @@
 
 <!-- HERO -->
 <header class="hero">
-  <div class="hero-eyebrow">HOSA Medical Innovation · Clinical Validation</div>
+  <div class="hero-eyebrow">HOSA Medical Innovation · Clinical &amp; Industry Review</div>
   <h1>SterileZone<br>Guardian</h1>
   <div class="hero-tagline">Patent-Pending AI Practice Monitoring Platform</div>
   <div class="patent-badge">
@@ -565,33 +565,90 @@
   </div>
   <div class="stats-row">
     <div class="stat-item">
-      <div class="stat-num">30+</div>
-      <div class="stat-label">Professionals<br>Contacted</div>
+      <div class="stat-num">38</div>
+      <div class="stat-label">Clinician<br>Reviewers</div>
     </div>
     <div class="stat-item">
-      <div class="stat-num">6</div>
-      <div class="stat-label">Formal<br>Responses</div>
+      <div class="stat-num">3</div>
+      <div class="stat-label">Letters of<br>Support</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">99%</div>
+      <div class="stat-label">Accuracy Across<br>2,000 Tests</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">&lt;10 ms</div>
+      <div class="stat-label">Detection to<br>Physical Alert</div>
     </div>
   </div>
+  <div class="award-line">1st Place, Medical Innovation · HOSA International Leadership Conference 2026</div>
 </header>
 
 <!-- IMPERATIVE CALLOUT -->
 <section class="imperative-section">
   <div class="imperative-word"><span>Imperative.</span></div>
-  <div class="imperative-sub">The word that emerged across every reviewer, every institution - from professionals who work in these environments every day.</div>
+  <div class="imperative-sub">How Kate Maclean, RN, a health science educator at Texas Health Harris Methodist Fort Worth, rated the usefulness of automated event logs for training, quality assurance, and compliance.</div>
 </section>
 
 <!-- INTRO -->
 <section class="intro-section">
   <div class="section-eyebrow">About This Page</div>
   <div class="divider"></div>
-  <h2>Formal Clinical &amp; Industry Reviewer Responses</h2>
-  <p>These are the formal clinical and industry reviewer responses collected during the development of SterileZone Guardian, provided here in full for judges and delegates reviewing the exhibit. Reviewers were contacted across physician, nursing, engineering, and regulatory backgrounds. Each response is reproduced as submitted, with breakdowns provided where useful context is needed.</p>
+  <h2>Selected Clinical &amp; Industry Reviewer Responses</h2>
+  <p>38 clinicians nationwide have reviewed SterileZone Guardian. This page shares selected clinical and industry feedback collected during its development. Letters and full responses are reproduced as submitted, and other feedback is summarized.</p>
+</section>
+
+<!-- CURRENT SYSTEM -->
+<section class="system-section">
+  <div class="system-box">
+    <div class="section-eyebrow">Current System</div>
+    <div class="divider" style="margin-left:0;"></div>
+    <div class="key-point">
+      <div class="key-point-dot"></div>
+      <div class="key-point-text">Detects, documents, and alerts on sterile-field breaches at 60 FPS on live 1280×720 video.</div>
+    </div>
+    <div class="key-point">
+      <div class="key-point-dot"></div>
+      <div class="key-point-text">Fuses a custom YOLOv8 object detector trained on 5,800+ annotated surgical instrument images, MediaPipe 21-point 3D hand tracking, and MOG2 background subtraction for motion.</div>
+    </div>
+    <div class="key-point">
+      <div class="key-point-dot"></div>
+      <div class="key-point-text">ArUco markers define dynamic boundary polygons. Each detection is classified as Breach, Warning, or Safe, with 8-direction entry attribution.</div>
+    </div>
+    <div class="key-point">
+      <div class="key-point-dot"></div>
+      <div class="key-point-text">Arduino LED alert with under 10 ms from detection to physical alert. 8-frame temporal debouncing suppresses false alarms from brief occlusions.</div>
+    </div>
+    <div class="key-point">
+      <div class="key-point-dot"></div>
+      <div class="key-point-text">Breach log with microsecond-precision timestamps and automatic 3-second pre-roll and post-roll video clips.</div>
+    </div>
+    <div class="key-point">
+      <div class="key-point-dot"></div>
+      <div class="key-point-text">Staggered detector scheduling (YOLOv8 at 10 FPS, MediaPipe at 15 FPS, motion at 30 FPS) and region-of-interest masking cut unnecessary computation by ~60%.</div>
+    </div>
+    <div class="key-point">
+      <div class="key-point-dot"></div>
+      <div class="key-point-text">99% accuracy across 2,000 tests.</div>
+    </div>
+    <div class="key-point">
+      <div class="key-point-dot"></div>
+      <div class="key-point-text">After biomedical engineer Holle Carey questioned whether the system would hold up in a real operating room, testing moved into UNT Health Science Center&#39;s clinical simulation program. The system lagged behind OR-speed movement there, and it was refined until it kept pace.</div>
+    </div>
+    <div class="key-point">
+      <div class="key-point-dot"></div>
+      <div class="key-point-text">Formal Letters of Support from a gastroenterologist (MD) at NYC Health + Hospitals/Queens; a private-practice dentist (DDS, MBA); and Holle Carey, Research Biomedical Engineer at the Texas Biomedical Device Center (UT Dallas).</div>
+    </div>
+    <div class="key-point">
+      <div class="key-point-dot"></div>
+      <div class="key-point-text">Now in active outreach for clinical deployment.</div>
+    </div>
+  </div>
 </section>
 
 <!-- REVIEWER CARDS -->
 <section class="reviewers-section">
-  <h2>6 Reviewer Responses</h2>
+  <h2>Selected Reviewer Responses</h2>
 
   <!-- 1. Holle Carey -->
   <div class="reviewer-card" onclick="toggleCard(this)">
@@ -599,7 +656,7 @@
       <div class="card-avatar">HC</div>
       <div class="card-info">
         <div class="card-name">Holle Carey</div>
-        <div class="card-title">Sr. Regulatory Engineer</div>
+        <div class="card-title">Research Biomedical Engineer</div>
         <div class="card-inst">Texas Biomedical Device Center · UTD</div>
       </div>
       <div class="card-right">
@@ -608,11 +665,11 @@
       </div>
     </div>
     <div class="card-snippet">
-      Strong support from a medical device manufacturer's regulatory perspective. Highlighted expanded value for point-of-use sterile packaging inspection beyond boundary monitoring.
+      Letter of support. Saw value beyond boundary monitoring, including point-of-use inspection of sterile packaging.
     </div>
     <div class="card-expanded">
       <div class="expanded-inner">
-        <h3>Full Letter - May 15, 2026</h3>
+        <h3>Full Letter</h3>
         <div class="letter-text">To Whom It May Concern,
 
 I am pleased to provide this letter in support of the student team competing in the HOSA Medical Innovation International event with their project focused on the development of an artificial intelligence (AI)-based Sterile Field Monitor.
@@ -659,6 +716,9 @@ University of Texas at Dallas - Texas Biomedical Device Center</div>
     <div class="card-expanded">
       <div class="expanded-inner">
         <h3>Full Letter</h3>
+        <div class="pending-note">
+          <p>This letter is reproduced as written, including the performance figures it cites. For current figures, see Current System above.</p>
+        </div>
         <div class="letter-text">To Whom It May Concern,
 
 I am writing in strong support of SterileZone Guardian, an AI-powered sterile field monitoring system developed by Suhas Chinta and his team at Keller Collegiate Academy.
@@ -788,29 +848,24 @@ Overall, this project represents an outstanding integration of medicine, enginee
   </div>
 
   <!-- 3. Nathaniel Bleker -->
-  <div class="reviewer-card pending" onclick="toggleCard(this)">
+  <div class="reviewer-card" onclick="toggleCard(this)">
     <div class="card-header">
-      <div class="card-avatar" style="background:#c8a84b;">NB</div>
+      <div class="card-avatar">NB</div>
       <div class="card-info">
         <div class="card-name">Nathaniel Bleker</div>
         <div class="card-title">Head of Engineering Development</div>
         <div class="card-inst">University of Texas at Dallas</div>
       </div>
       <div class="card-right">
-        <span class="status-badge status-pending">Meeting Pending</span>
-        <span class="chevron" style="color:#c8a84b;">›</span>
+        <span class="status-badge status-complete">Written Feedback</span>
+        <span class="chevron">›</span>
       </div>
     </div>
     <div class="card-snippet">
-      Detailed engineering feedback on hardware architecture, FDA regulatory strategy, and human factors. Full follow-up meeting scheduled.
+      Detailed engineering feedback on hardware architecture, FDA regulatory strategy, and human factors.
     </div>
     <div class="card-expanded">
       <div class="expanded-inner">
-        <div class="pending-note">
-          <div class="pending-note-title">⏳ Follow-Up Meeting Scheduled</div>
-          <p>An in-person follow-up meeting with Nathaniel Bleker is pending. The feedback below was received in writing prior to that meeting and reflects his initial detailed technical review.</p>
-        </div>
-
         <h3>Key Engineering Feedback - Summary</h3>
 
         <div class="breakdown-block">
@@ -847,30 +902,25 @@ Overall, this project represents an outstanding integration of medicine, enginee
   </div>
 
   <!-- 4. Dr. Shopha Tserotas -->
-  <div class="reviewer-card pending" onclick="toggleCard(this)">
+  <div class="reviewer-card" onclick="toggleCard(this)">
     <div class="card-header">
-      <div class="card-avatar" style="background:#c8a84b;">ST</div>
+      <div class="card-avatar">ST</div>
       <div class="card-info">
         <div class="card-name">Dr. Shopha Tserotas, PhD, RN</div>
         <div class="card-title">Faculty, College of Nursing</div>
         <div class="card-inst">UNT Health Science Center</div>
       </div>
       <div class="card-right">
-        <span class="status-badge status-pending">Meeting Pending</span>
-        <span class="chevron" style="color:#c8a84b;">›</span>
+        <span class="status-badge status-complete">Response Received</span>
+        <span class="chevron">›</span>
       </div>
     </div>
     <div class="card-snippet">
-      "I love your innovation and creativity." Identified operating rooms and surgery areas as most appropriate setting. Full demo and feedback session pending.
+      "I love your innovation and creativity." Identified operating rooms and surgery areas as most appropriate setting. Testing later moved into UNT Health Science Center's clinical simulation program.
     </div>
     <div class="card-expanded">
       <div class="expanded-inner">
-        <div class="pending-note">
-          <div class="pending-note-title">&#9203; Demo Meeting Scheduled</div>
-          <p>Dr. Tserotas has expressed strong interest in attending a live demonstration of SterileZone Guardian. A meeting is being coordinated for an in-person demo and structured feedback session, potentially with additional nursing faculty present.</p>
-        </div>
-
-        <h3>Response Breakdown</h3>
+        <h3>Initial Response Breakdown</h3>
 
         <div class="breakdown-block">
           <div class="breakdown-q">Initial Reaction</div>
@@ -893,8 +943,8 @@ Overall, this project represents an outstanding integration of medicine, enginee
         </div>
 
         <div class="breakdown-block">
-          <div class="breakdown-q">Next Step</div>
-          <div class="breakdown-a">A live demo and structured feedback session is being scheduled. Dr. Tserotas may bring additional UNT Health Science Center faculty to the session to expand the scope of clinical input received.</div>
+          <div class="breakdown-q">What Followed</div>
+          <div class="breakdown-a">Testing moved into UNT Health Science Center's clinical simulation program. The system lagged behind OR-speed movement there, and it was refined until it kept pace.</div>
         </div>
       </div>
     </div>
@@ -906,7 +956,7 @@ Overall, this project represents an outstanding integration of medicine, enginee
 <!-- FOOTER -->
 <footer>
   <div class="footer-logo">SterileZone Guardian</div>
-  <div class="footer-sub">HOSA Medical Innovation · Clinical Validation Page</div>
+  <div class="footer-sub">HOSA Medical Innovation · Reviewer Feedback Page</div>
   <div class="footer-divider"></div>
   <div class="footer-team">Layal Barbar &nbsp;·&nbsp; Suhas Chinta &nbsp;·&nbsp; Raniel Tshimbalanga &nbsp;·&nbsp; Sanjit Vadlapudi</div>
   <div class="footer-chapter">
